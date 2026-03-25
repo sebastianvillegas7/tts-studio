@@ -335,9 +335,15 @@ body {
 
 .sis-image-anime {
   position: relative;
-  overflow: hidden !important;
-  height: 660px;
+  overflow: hidden !important;  
 }
+
+.sis-image-anime-about {
+  position: relative;
+  overflow: hidden !important;
+  height: 680px;
+}
+  
 
 .sis-image-anime:after {
   content: "";
