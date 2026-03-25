@@ -99,14 +99,13 @@ Sidebar heading     :  22px,700,Bold "Noto Serif", serif (Heading Font)
     /* DARK */
   --primary-color: #181817;     
   --background-color: #131312;  
-  --secondary-color: #060505;   
+  --secondary-color: #211e1a52;
 
   /* TEXTOS */
   --text-color: #d9d9dd;        
   --text-muted: #b7b7bd;        
 
-  /* ACCENTS */
-  --secondary-color: #555452;   
+  /* ACCENTS */  
   --white-color: #ffffff;
   --error-color: rgb(230, 87, 87);
   --default-font: "Work Sans", sans-serif;
@@ -235,15 +234,15 @@ h5 {
   mask-image: url("../images/icon-sub-heading.svg");
   mask-repeat: no-repeat;
   mask-size: cover;
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
 }
 
 .sis-section-title h2 {
   margin-bottom: 20px;
   font-size: 48px;
   font-weight: 400;
-  color: var(--primary-color);
+  color: var(--text-color);
   letter-spacing: 0px;
   line-height: 58px;
   text-transform: none;
@@ -627,6 +626,21 @@ body {
 
 .sis-comman-background {
   background-color: var(--primary-color) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.sis-comman-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.sis-comman-background > * {
+  position: relative;
+  z-index: 2;
 }
 
 .sisf-sis-bottom-left-image {
@@ -645,11 +659,25 @@ body {
   background-image: url("../images/page-line-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top right;
+  background-position: left;
 }
 
 .sis-comman-bg {
   background-color: var(--secondary-color) !important;
+}
+
+.spin-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.spin-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* ajusta intensidad */
+  pointer-events: none;
+  border-radius: 50%; /* si es circular */
 }
 
 .spin-img {
@@ -1404,14 +1432,44 @@ body {
         04.5 Promo Ticker css
 ======================================= */
 .sis-promo-ticker-section {
-  padding: 0;  
-  background: var(--main-gradient);
+  padding: 0;
+  height: 100px;
   overflow: hidden;
   display: flex;
   align-items: center;
-  height: 100px;
   position: relative;
   z-index: 1;
+
+  background: rgba(212, 175, 55, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.sis-promo-ticker-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--main-gradient);
+  opacity: 0.30;
+  z-index: -2;
+}
+
+.sis-promo-ticker-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.06) 0%,
+    rgba(255,255,255,0.02) 35%,
+    rgba(255,255,255,0) 100%
+  );
+  z-index: -1;
+  pointer-events: none;
 }
 
 .sis-promo-ticker-section .sis-contents span {
@@ -1419,7 +1477,7 @@ body {
   font-weight: 600;
   color: var(--main-color);
   letter-spacing: 0.6px;
-  background-color: var(--secondary-color);
+  background: rgba(0, 0, 0, 0.22) !important;
 }
 
 .sis-promo-ticker-section .sis-contents {
@@ -1430,10 +1488,10 @@ body {
 }
 
 .sis-promo-ticker-section .sis-contents span:hover {
-  color: var(--primary-color) !important;
+  color: var(--text-color) !important;
   transition: 0.3s;
   cursor: pointer;
-  border: 1px solid var(--primary-color) !important;
+  border: 1px solid var(--text-color) !important;
 }
 
 /* ====================================
@@ -1448,6 +1506,35 @@ body {
 .sis-about-content-right .sisf-e-inner {
   margin-bottom: 30px;
   padding: 20px;
+}
+
+.sis-about-content-left .sis-e-about-image {
+  position: relative;
+}
+
+.sis-about-content-left .sis-e-about-image .sis-image-anime {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.sis-about-content-left .sis-e-about-image .sis-image-anime::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sis-about-content-left .sis-e-about-image .sis-image-anime::after {
+  z-index: 2;
+}
+
+.sis-about-content-left .sis-e-about-image img {
+  position: relative;
+  z-index: 0;
+  display: block;
 }
 
 .sis-about-content-center .sisf-e-inner,
@@ -1502,7 +1589,22 @@ body {
 }
 
 .sis-about-content-right {
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
+ position: relative;
+  overflow: hidden;
+}
+
+.sis-about-content-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.sis-about-content-right > * {
+  position: relative;
+  z-index: 2;
 }
 
 .sis-e-about-counter-bottom {
@@ -6472,6 +6574,14 @@ input[type="text"]:focus,
 }
 
 @media only screen and (max-width: 767px) {
+  .slicknav_nav a.active {
+    color: var(--main-color) !important;
+  }
+
+  .slicknav_nav li a.active {
+    color: var(--main-color) !important;
+  }
+
   .sisf-main-header .sis-header-top {
     display: none;
   }
@@ -6624,6 +6734,23 @@ input[type="text"]:focus,
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
   }
   /* ! HERO END */
+
+  /* ! PROMO TICKER START */
+  .sis-promo-ticker-section {
+    height: 100px;
+  }
+
+  .sis-promo-ticker-section .sis-contents {
+    margin-right: 25px;
+    padding: 0.4em 0;
+  }
+
+  .sis-promo-ticker-section .sis-contents span {
+    font-size: 0.9em;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+  }
+  /* ! PROMO TICKER END */
 
   .sis-comman-bottom-line-text {
     margin-top: 0px;
@@ -6782,6 +6909,7 @@ input[type="text"]:focus,
   .sis-about-content-right .sisf-e-inner {
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    object-position: 99% center;
   }
 
   .sisf-sis-icon-with-text--hover .sisf-e-service-image a {
