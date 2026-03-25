@@ -308,6 +308,7 @@ body {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+  object-position: center 30%;
   -webkit-transform-origin: left;
   transform-origin: left;
 }
@@ -335,6 +336,7 @@ body {
 .sis-image-anime {
   position: relative;
   overflow: hidden !important;
+  height: 660px;
 }
 
 .sis-image-anime:after {
@@ -1727,6 +1729,66 @@ body {
   color: var(--main-color) !important;
   font-weight: 600;
   border-bottom: 1px solid var(--main-color);
+}
+
+/* ====================================
+        05.5 Why Choose Us Css
+======================================= */
+.sis-why-choose-us-section {
+  background: transparent;
+}
+
+/* texto */
+.sis-why-choose-us-section .sis-section-title p {
+  max-width: 520px;
+}
+
+/* lista */
+.sisf-sis-listing-items p {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-color);
+  font-size: 15px;
+}
+
+/* icono check */
+.sisf-sis-listing-items i {
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* imagen derecha */
+.sisf-why-choose-us-image-right {
+  border-radius: 20px;
+  overflow: hidden;  
+}
+
+.sisf-why-choose-us-image-right {
+  position: relative;
+  border-radius: 20px;
+  overflow: visible;
+}
+
+.sisf-why-choose-us-image-right .sis-image-anime,
+.sisf-why-choose-us-image-right .sis-image-anime img {
+  border-radius: 20px;
+}
+
+.sisf-why-choose-us-image-right .sis-image-anime {
+  overflow: hidden;
+}
+
+.sisf-why-choose-us-image-right .sis-e-icon--spin {
+  position: absolute;
+  left: -55px;
+  bottom: 55px;
+  z-index: 3;
+}
+
+/* opcional: leve separación */
+.sis-why-choose-us-section .row {
+  margin-top: 20px;
 }
 
 /* ====================================
@@ -6839,6 +6901,14 @@ input[type="text"]:focus,
     white-space: nowrap;
   }
   /* ! PROMO TICKER END */
+
+  .sisf-why-choose-us-image-right {
+    margin-top: 30px;
+  }
+
+  .sisf-sis-listing-items p {
+    font-size: 14px;
+  }
 
   .sis-comman-bottom-line-text {
     margin-top: 0px;
