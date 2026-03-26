@@ -96,6 +96,12 @@ Sidebar heading     :  22px,700,Bold "Noto Serif", serif (Heading Font)
     rgba(201, 169, 79, 0.95),
     rgba(212, 190, 79, 0.95)
   );
+  --bg-gradient: linear-gradient(
+    45deg,
+    rgb(196 160 79 / 69%),
+    rgb(201 169 79 / 45%),
+    rgb(212 190 79 / 6%)
+  );
   --main-color: #d3a934;
 
   /* BASE CLARA */
@@ -1705,6 +1711,10 @@ p {
   color: var(--text-color) !important;
 }
 
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
 .sisf-rating-image-with-content .star {
   font-size: 20px;
 }
@@ -1972,17 +1982,26 @@ p {
   margin-top: 14px;
 }
 
-/* * Services Section Css */
-/* ====================================
-        06. Services Section Css
-======================================= */
+/* * Services Css */
 .sis-services-section {
   padding: 70px 0;
-  background-image: url("../images/service-graphics.png");
-  background-position: top right;
-  background-repeat: no-repeat;
-  background-size: cover;
   overflow: hidden;
+}
+
+.sis-services-section.sis-comman-background {
+  background: var(--bg-gradient) !important;
+}
+
+.sis-services-section.sis-comman-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../images/page-line-bg.png");
+  background-position: top center;
+  background-size: 1515px auto;
+  opacity: 0.08;
+  filter: blur(0.6px);
+  pointer-events: none;
 }
 
 .sis-services-cards-row {
@@ -2045,6 +2064,7 @@ p {
   position: relative;
   z-index: 3;
   margin-bottom: 34px !important;
+  right: -290px;
 }
 
 .sis-services-section .sisf-sis-e-service-list .sisf-e-service-image a {
@@ -2057,26 +2077,50 @@ p {
   justify-content: center;
   align-items: center;
   transition: 0.4s ease-in-out;
-  position: relative;    
+  position: relative;
 }
 
 .sis-services-section .sisf-sis-e-service-list .sisf-e-service-image img {
-  width: 74px;
-  height: 74px;
+  width: 46px;
+  height: auto;
   display: block;
   filter: none;
   transition: all 0.4s ease;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image a {
+.service-icon-brow {
+  width: 52px !important;
+  height: auto;
+  transform: rotate(-11deg) translateX(-3px) translateY(-1px) !important;
+}
+
+.service-icon-semi {
+  width: 50px !important;
+  height: auto;
+  transform: rotate(-10deg) translateX(-2px) translateY(-3px) !important;
+}
+
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner:hover
+  .sisf-e-service-image
+  a {
   color: #181817; /* ojo en hover */
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image img {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner:hover
+  .sisf-e-service-image
+  img {
   filter: none;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image img {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner:hover
+  .sisf-e-service-image
+  img {
   filter: brightness(0) invert(1);
 }
 
@@ -2119,16 +2163,27 @@ p {
   transform-origin: left center;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sis-btn-default {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner:hover
+  .sis-btn-default {
   color: var(--main-color);
   background-color: var(--white-color);
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sis-btn-default i {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner:hover
+  .sis-btn-default
+  i {
   background-color: var(--primary-color);
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner .sis-btn-default:hover i {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner
+  .sis-btn-default:hover
+  i {
   background-color: var(--white-color);
 }
 
@@ -2137,10 +2192,11 @@ p {
   color: var(--text-color) !important;
 }
 
-/* ? Lash Card With Photo Background */
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash {
+/* ? Service Cards With Photo Backgrounds */
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-brow,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-semi {
   background-color: transparent;
-  background-image: url("../images/service-lashes.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -2148,7 +2204,30 @@ p {
   overflow: hidden;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash::before {
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash {
+  background-image: url("../images/service-lashes.jpg");
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-brow {
+  background-image: url("../images/service-brows.jpg");
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-semi {
+  background-image: url("../images/service-semi.jpg");
+  background-size: cover;
+  background-position: 80% 35%;
+  background-repeat: no-repeat;
+}
+
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash::before,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow::before,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -2159,7 +2238,15 @@ p {
   transition: all 0.4s ease;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash::after {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash::after,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow::after,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2173,19 +2260,76 @@ p {
   transition: all 0.4s ease;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash:hover::after {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash:hover::after,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow:hover::after,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi:hover::after {
   opacity: 1;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-e-service-image,
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-e-content,
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-m-button {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash
+  .sisf-e-service-image,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash
+  .sisf-e-content,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash
+  .sisf-m-button,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow
+  .sisf-e-service-image,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow
+  .sisf-e-content,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow
+  .sisf-m-button,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi
+  .sisf-e-service-image,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi
+  .sisf-e-content,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi
+  .sisf-m-button {
   position: relative;
   z-index: 3;
 }
 
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash h4 a,
-.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash p {
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-lash
+  h4
+  a,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash p,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-brow
+  h4
+  a,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-brow p,
+.sis-services-section
+  .sisf-sis-e-service-list
+  .sisf-e-inner.service-bg-semi
+  h4
+  a,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-semi p {
   color: #fff !important;
 }
 
@@ -6602,7 +6746,7 @@ input[type="text"]:focus,
     top: 0px;
   }
 
-  .sis-premium-promo-box {    
+  .sis-premium-promo-box {
     text-align: center;
   }
 
@@ -7195,7 +7339,7 @@ input[type="text"]:focus,
   }
 
   /* ! PREMIUM PROMO + SERVICE START */
-.container-premium {
+  .container-premium {
     width: calc(100% - 30px);
   }
 
@@ -7232,7 +7376,7 @@ input[type="text"]:focus,
   }
 
   .sis-premium-promo-content h2 {
-    font-size: 2.05em;
+    font-size: 1.9em;
     line-height: 0.98;
   }
 
@@ -7250,14 +7394,23 @@ input[type="text"]:focus,
   .sis-premium-promo-content .sisf-m-button {
     margin-top: 12px;
   }
+
+  /* * Services */
+  .sis-services-cards-row {
+    gap: 20px;
+  }
+
+  .sis-services-section .sisf-sis-e-service-list .sisf-e-service-image{
+    right: -234px;
+  }
+  
+    .sis-comman-bottom-line-text {
+      margin-top: 1em !important;
+    }
   /* ! PREMIUM PROMO + SERVICE END */
 
   .sisf-sis-listing-items p {
     font-size: 14px;
-  }
-
-  .sis-comman-bottom-line-text {
-    margin-top: 0px;
   }
 
   .sis-comman-bottom-line-text .sisf-sis-e-box a,
