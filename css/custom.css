@@ -1972,32 +1972,221 @@ p {
   margin-top: 14px;
 }
 
+/* * Services Section Css */
+/* ====================================
+        06. Services Section Css
+======================================= */
 .sis-services-section {
   padding: 70px 0;
+  background-image: url("../images/service-graphics.png");
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 
-.sis-services-section .sisf-e-content p,
-.sis-services-section .sisf-e-title,
-.sis-services-section .sisf-e-title a,
-.sis-services-section .sis-comman-bottom-line-text p,
-.sis-services-section .sis-comman-bottom-line-text a {
-  color: var(--text-color) !important;
+.sis-services-cards-row {
+  margin-top: 14px;
 }
 
-.sis-services-section .sisf-e-service-image figure {
-  width: 72px;
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.sis-services-cards-row > [class*="col-"] {
+  padding-left: 18px;
+  padding-right: 18px;
 }
 
 .sis-services-section .sisf-sis-e-service-list {
   height: 100%;
 }
 
-.sis-services-section .sisf-e-inner {
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner {
+  position: relative;
+  margin-bottom: 36px;
+  padding: 30px 28px;
+  border: 1px solid #ffffff1a;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: auto;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--primary-color);
   height: 100%;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner::before {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: var(--main-color);
+  transition: all 0.6s ease;
+  z-index: 2;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover::before {
+  height: 100%;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover {
+  border: 1px solid var(--main-color) !important;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-content {
+  position: relative;
+  z-index: 3;
+  transition: all 0.6s ease;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-service-image {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 34px !important;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-service-image a {
+  width: 70px;
+  height: 70px;
+  background: var(--main-gradient);
+  border-radius: 100px;
+  min-width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease-in-out;
+  position: relative;    
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-service-image img {
+  width: 74px;
+  height: 74px;
+  display: block;
+  filter: none;
+  transition: all 0.4s ease;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image a {
+  color: #181817; /* ojo en hover */
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image img {
+  filter: none;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sisf-e-service-image img {
+  filter: brightness(0) invert(1);
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner h4 a,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner p {
+  color: var(--white-color) !important;
+  transition: all 0.6s ease;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-title {
+  margin-bottom: 16px !important;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-title,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-title a {
+  color: var(--white-color) !important;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-title h4,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-title h4 a {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-text p {
+  font-size: 17px;
+  line-height: 1.9;
+  max-width: 95%;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-m-button {
+  margin-top: 26px;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner .sis-btn-default {
+  transition: all 0.6s ease;
+  position: relative;
+  z-index: 3;
+  transform: scale(0.96);
+  transform-origin: left center;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sis-btn-default {
+  color: var(--main-color);
+  background-color: var(--white-color);
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner:hover .sis-btn-default i {
+  background-color: var(--primary-color);
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner .sis-btn-default:hover i {
+  background-color: var(--white-color);
+}
+
+.sis-services-section .sis-comman-bottom-line-text p,
+.sis-services-section .sis-comman-bottom-line-text a {
+  color: var(--text-color) !important;
+}
+
+/* ? Lash Card With Photo Background */
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash {
+  background-color: transparent;
+  background-image: url("../images/service-lashes.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.52);
+  z-index: 1;
+  transition: all 0.4s ease;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.22),
+    rgba(0, 0, 0, 0.28)
+  );
+  opacity: 0;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash:hover::after {
+  opacity: 1;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-e-service-image,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-e-content,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash .sisf-m-button {
+  position: relative;
+  z-index: 3;
+}
+
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash h4 a,
+.sis-services-section .sisf-sis-e-service-list .sisf-e-inner.service-bg-lash p {
+  color: #fff !important;
 }
 
 /* ====================================
