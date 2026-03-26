@@ -2334,261 +2334,149 @@ p {
 }
 
 /* ====================================
-        08. Our Progress Section Css
+        07. Store / Catalog Section
 ======================================= */
-.sis-our-progress-section {
-  background-image: url("../images/our-process.jpg");
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-size: cover;
+.sis-store-catalog-section {
+  overflow: hidden;
 }
 
-.sis-our-progress-section .sisf-sis-listing-items i {
-  font-size: 18px;
-}
-
-.sis-e-icon--spin.sis-video img {
-  width: 185px;
-}
-
-.sis-e-icon--spin .sis-progress {
-  position: absolute !important;
-  top: 0% !important;
+.sis-store-marquee {
+  overflow: hidden;
+  position: relative;
   width: 100%;
+  padding: 10px 0 0;
+}
+
+.sis-store-track {
+  display: flex;
+  align-items: stretch;
+  gap: 28px;
+  width: max-content;
+  animation: sisStoreScroll 34s linear infinite;
+}
+
+.sis-store-marquee:hover .sis-store-track {
+  animation-play-state: paused;
+}
+
+.sis-store-card-wrap {
+  width: 320px;
+  flex: 0 0 320px;
+}
+
+.sis-store-catalog-section .sisf-product-list-item {
+  margin-bottom: 0;
   height: 100%;
 }
 
-/* ====================================
-       09. Product List Section Css
-======================================= */
-.sisf-list-img {
-  position: absolute;
-  right: 27px;
-  bottom: 42px;
+.sis-store-catalog-section .sisf-product-list-item .sis-e-inner {
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--white-color);
+  border: 1px solid rgba(24, 24, 23, 0.08);
+  box-shadow: 0 10px 30px rgba(24, 24, 23, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.sisf-product-list-item {
-  margin-bottom: 30px;
+.sis-store-catalog-section .sisf-product-list-item:hover .sis-e-inner {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(24, 24, 23, 0.1);
 }
 
-.sisf-product-list .sisf-product-image {
+.sis-store-catalog-section .sisf-product-image {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
 }
 
-.sisf-product-list .sisf-product-image img {
-  transform: scale(1) translateZ(0);
-  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
-  width: 100%;
+.sis-store-catalog-section .sisf-product-image figure {
+  margin: 0;
 }
 
-.sisf-product-list .sis-e-inner:hover .sisf-product-image img {
-  transform: scale(1.05) translateZ(0);
+.sis-store-catalog-section .sisf-product-image img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
-.sisf-product-list .sis-e-inner .sisf-m-button {
+.sis-store-catalog-section .sisf-product-image .sisf-m-button {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  transform: translateY(70px);
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
   opacity: 0;
-  transition: 0.4s ease-in-out;
+  transition: 0.3s ease;
+  width: calc(100% - 32px);
+  display: flex;
   justify-content: center;
 }
 
-.sisf-product-list .sis-e-inner .sisf-m-button .sis-btn-default i {
-  transform: rotate(0deg);
-}
-
-.sisf-product-list .sis-e-inner:hover .sisf-m-button {
-  transform: translateY(-15px);
+.sis-store-catalog-section .sisf-product-list-item:hover .sisf-product-image .sisf-m-button {
   opacity: 1;
-  transition: 0.2s ease-in-out;
 }
 
-.sisf-product-list .sis-e-inner .sis-heart-icon {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-}
-
-.sisf-product-list .sis-e-inner .sis-heart-icon a {
-  font-size: 20px;
-  color: var(--white-color);
-}
-
-.sisf-product-list .sis-e-inner .sisf-e-product-content {
-  padding: 20px 0 0 15px;
-}
-
-.sisf-product-list .sis-e-inner .sisf-e-catagory span {
-  display: inline-block;
-  padding: 2px 8px;
-  background-color: #fa705a1a;
-  color: var(--main-color);
-  border-radius: 50px;
-}
-
-.sisf-product-list .sis-e-inner .sisf-e-product-title-link {
-  transition: 0.2s ease-in-out;
-}
-
-.sisf-product-list .sis-e-inner .sisf-e-product-title-link:hover {
-  color: var(--main-color);
-  transition: 0.2s ease-in-out;
-}
-
-.sisf-product-list .sis-e-inner .sis-product-price-amount,
-.sisf-product-list .sis-e-inner .sis-product-price-currencysymbol {
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 30px;
-  color: var(--text-color);
-  font-family: var(--heading-font);
-}
-
-.sisf-product-list .sis-e-inner .sis-product-price-currencysymbol {
-  vertical-align: baseline;
-  position: relative;
-  top: 0;
-}
-
-/* ====================================
-      10. Transformation Section Css
-======================================= */
-.sis-img-comparition-container {
-  position: relative;
-  height: 700px;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.sis-img-comparition-img {
-  position: absolute;
-  top: 0;
-  left: 0;
+.sis-store-catalog-section .sisf-product-image .sis-btn-default {
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
 }
 
-.sis-img-comparition-overlay {
-  height: 50%;
-  width: 100%;
-  border-right: none;
-  border-bottom: 4px solid var(--white-color);
-}
-
-.sis-img-comparition-img img {
-  width: 100%;
-  height: auto;
-}
-
-.img-comp-slider {
-  cursor: ns-resize;
-  transform: translate(0%, -2%);
+.sis-store-catalog-section .sis-heart-icon {
   position: absolute;
+  top: 14px;
+  right: 14px;
   z-index: 2;
-  cursor: ew-resize;
-  width: 100px;
-  height: 100px;
-  background: var(--main-color);
-  border: 5px solid var(--white-color);
+}
+
+.sis-store-catalog-section .sis-heart-icon a {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
+  background: rgba(255, 253, 249, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
-  font-size: 16px;
-  user-select: none;
+  color: var(--text-color);
 }
 
-.img-comp-slider::before {
-  content: "DRAG";
-  display: inline-block;
-  color: var(--white-color);
-  letter-spacing: 5px;
+.sis-store-catalog-section .sisf-e-product-content {
+  padding: 22px 20px 20px;
+}
+
+.sis-store-catalog-section .sisf-e-catagory span {
+  color: var(--main-color);
+  font-size: 14px;
   font-weight: 600;
-  padding-left: 3px;
+  text-transform: uppercase;
 }
 
-/* ====================================
-        11. Our Approach Section Css
-======================================= */
-.sis-image-accordian-hover-effect-list .sisf-e-inner {
-  display: flex;
-  gap: 0 20px;
-  height: 100%;
-  overflow: hidden;
+.sis-store-catalog-section .sisf-e-product-title h4,
+.sis-store-catalog-section .sisf-e-product-title a,
+.sis-store-catalog-section .sisf-e-product-title-link {
+  color: var(--text-color) !important;
+  font-size: 24px;
+  line-height: 1.3;
 }
 
-.sis-image-accordian-hover-effect-list .sisf-e-accordian-item {
-  flex: 1;
-  transition: all 0.3s ease;
-  position: relative;
-  cursor: pointer;
-  margin-bottom: 30px;
-  overflow: hidden;
-  border-radius: 15px;
+.sis-store-catalog-section .sisf-e-ratings {
+  margin-bottom: 10px;
 }
 
-.sis-image-accordian-hover-effect-list .sisf-e-accordian-item img {
-  width: 100%;
-  height: 430px;
-  object-fit: cover;
-  border-radius: 15px;
+.sis-store-catalog-section .sisf-product-price {
+  margin-top: 6px;
 }
 
-.sis-image-accordian-hover-effect-list
-  .sisf-e-accordian-item
-  .sis-e-image::before {
-  position: absolute;
-  content: "";
-  bottom: 0;
-  left: 0;
-  height: 0%;
-  width: 100%;
-  background: linear-gradient(180deg, rgba(0, 30, 44, 0) 0%, #001e2c 100%);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-  opacity: 0;
-  z-index: 2;
+.sis-store-catalog-section .sis-product-price-amount {
+  color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 700;
 }
 
-.sis-image-accordian-hover-effect-list
-  .sisf-e-accordian-item:hover
-  .sis-e-image::before {
-  opacity: 1;
-  height: 35%;
-  transition: all 0.5s ease;
-}
-
-.sis-image-accordian-hover-effect-list .sisf-e-accordian-item:hover {
-  flex: 4;
-}
-
-.sis-image-accordian-hover-effect-list .sisf-e-accordian-item .sis-e-contant {
-  position: absolute;
-  bottom: -100px;
-  left: 0px;
-  padding: 20px;
-  width: 100%;
-  opacity: 0;
-  z-index: 3;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.sis-image-accordian-hover-effect-list
-  .sisf-e-accordian-item:hover
-  .sis-e-contant {
-  bottom: 0px;
-  opacity: 1;
-  transition: all 0.5s ease;
+@keyframes sisStoreScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* ====================================
