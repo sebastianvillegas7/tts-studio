@@ -1812,7 +1812,7 @@ p {
         06. Premium Promo + Services
 ======================================= */
 .container-premium {
-  width: 70%;
+  width: 60%;
 }
 
 .sis-services-wrap {
@@ -3845,7 +3845,7 @@ input[type="text"]:focus,
 
 .main-footer .sisf-sis-bottom-left-image,
 .main-footer .sisf-sis-bottom-right-image {
-  z-index: 5;
+  z-index: 1;
 }
 
 .main-footer .sisf-page-footer-middle-area {
@@ -3926,7 +3926,6 @@ input[type="text"]:focus,
 }
 
 .main-footer .footer-social-icons-link ul li a:hover {
-  background: var(--main-color);
   color: var(--white-color);
 }
 
