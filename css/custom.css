@@ -520,6 +520,7 @@ body {
 }
 
 .sis-btn-default {
+  width: max-content;
   position: relative;
   font-size: 18px;
   font-weight: 600;
@@ -651,7 +652,7 @@ body {
     #e5ddd1 42%,
     #d7cec1 100%
   ) !important;
-  
+
   box-shadow: 0 10px 30px rgba(24, 24, 23, 0.05);
   cursor: pointer;
 }
@@ -2367,7 +2368,9 @@ p {
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(24, 24, 23, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   height: 100%;
 }
 
@@ -2426,6 +2429,170 @@ p {
   color: var(--primary-color);
   font-size: 20px;
   font-weight: 700;
+}
+
+/* ====================================
+        08. Social Feed Section
+======================================= */
+.sis-social-feed-section {
+  padding: 70px 0 40px;
+}
+
+.sis-social-feed-grid {
+  margin-top: 18px;
+  row-gap: 24px;
+}
+
+.sis-social-feed-grid > [class*="col-"] {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.instagram-text-link {
+  display: flex;
+  align-items: center;
+}
+
+.sis-social-feed-card {
+  position: relative;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  background: #ffffff;
+  border: 1px solid rgba(24, 24, 23, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(24, 24, 23, 0.05);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.sis-social-feed-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #f58529 0%,
+    #feda77 25%,
+    #dd2a7b 55%,
+    #8134af 78%,
+    #515bd4 100%
+  );
+  z-index: 3;
+}
+
+.sis-social-feed-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(24, 24, 23, 0.1);
+}
+
+.sis-social-feed-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #f8f6f1;
+}
+
+.sis-social-feed-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.sis-social-feed-card:hover .sis-social-feed-image img {
+  transform: scale(1.04);
+}
+
+.sis-social-feed-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #f58529 0%,
+    #feda77 22%,
+    #dd2a7b 52%,
+    #8134af 76%,
+    #515bd4 100%
+  );
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(24, 24, 23, 0.14);
+}
+
+.sis-social-feed-content {
+  padding: 16px 16px 18px;
+  border-top: 1px solid rgba(24, 24, 23, 0.06);
+  background: #ffffff;
+}
+
+.sis-social-feed-type {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #dd2a7b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sis-social-feed-content h4 {
+  margin: 0 0 8px;
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.sis-social-feed-content p {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+.sis-social-feed-bottom {
+  margin-top: 22px;
+}
+
+@media (max-width: 991.98px) {
+  .sis-social-feed-section {
+    padding: 60px 0 30px;
+  }
+
+  .sis-social-feed-content h4 {
+    font-size: 18px;
+  }
+
+  .sis-social-feed-content p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .sis-social-feed-grid > [class*="col-"] {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .sis-social-feed-content {
+    padding: 16px 16px 18px;
+  }
+
+  .sis-social-feed-content h4 {
+    font-size: 17px;
+  }
 }
 
 /* ====================================
@@ -3819,7 +3986,7 @@ input[type="text"]:focus,
   position: relative;
   overflow: hidden;
   border-radius: 24px;
-  background: var(--bg-gradient);  
+  background: var(--bg-gradient);
   box-shadow: 0 10px 30px rgba(24, 24, 23, 0.05);
 }
 
@@ -3829,12 +3996,11 @@ input[type="text"]:focus,
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background:
-    radial-gradient(
-      circle at top left,
-      rgba(212, 190, 79, 0.12),
-      transparent 34%
-    );
+  background: radial-gradient(
+    circle at top left,
+    rgba(212, 190, 79, 0.12),
+    transparent 34%
+  );
 }
 
 .main-footer .sisf-page-footer-middle-area,
@@ -3954,21 +4120,34 @@ input[type="text"]:focus,
   z-index: 10;
 }
 
-.copy-left, .copy-right {
+.copy-left,
+.copy-right {
   display: flex;
 }
 
 .copy-left {
-  justify-content: end;  
+  justify-content: end;
 }
 
 .copy-right {
-  justify-content: start;  
+  justify-content: start;
 }
 
 .main-footer .sisf-sis-bottom-left-image img,
 .main-footer .sisf-sis-bottom-right-image img {
   max-width: 530px;
+}
+
+.footer-credit {
+  margin-left: 6px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.footer-credit a {
+  color: var(--main-color);  
+  transition: all 0.3s ease;
+  text-decoration: underline !important;  
 }
 
 /************************************/
@@ -4392,6 +4571,7 @@ input[type="text"]:focus,
 
   .sis-section-title {
     margin-bottom: 25px;
+    flex-direction: column;
   }
 
   .sis-section-title h1 {
@@ -5028,13 +5208,13 @@ input[type="text"]:focus,
     gap: 20px;
   }
 
-  .sis-services-section .sisf-sis-e-service-list .sisf-e-service-image{
+  .sis-services-section .sisf-sis-e-service-list .sisf-e-service-image {
     right: -234px;
   }
-  
-    .sis-comman-bottom-line-text {
-      margin-top: 1em !important;
-    }
+
+  .sis-comman-bottom-line-text {
+    margin-top: 1em !important;
+  }
   /* ! PREMIUM PROMO + SERVICE END */
 
   .sisf-sis-listing-items p {
@@ -5419,7 +5599,15 @@ input[type="text"]:focus,
     padding: 10px;
   }
 
-    /* ! FOOTER START */
+  .sis-social-feed-section {
+    padding: 60px 0 30px;
+  }
+
+  .sis-social-feed-content h4 {
+    font-size: 20px;
+  }
+
+  /* ! FOOTER START */
   .main-footer .sisf-page-footer-inner-area {
     border-radius: 20px;
   }
@@ -5499,7 +5687,7 @@ input[type="text"]:focus,
     padding-top: 0;
   }
 
-  .quick-links{
+  .quick-links {
     display: flex;
     justify-content: center;
   }
